@@ -1,0 +1,22 @@
+/**
+ * @param {Array} arr
+ * @param {number} size
+ * @return {Array}
+ */
+var chunk = function(arr, size) {
+    const longitudArr = Object.keys(arr).length
+    if (longitudArr === 0) {
+        return arr
+    }
+
+    if (longitudArr <= size) {
+        return [arr]
+    }
+
+    arrExpected = []
+
+    for (let i = 0; i < longitudArr; i += size) {
+        arrExpected.push(arr.slice(i, i + size))
+    }
+    return arrExpected
+};
