@@ -1,0 +1,14 @@
+/**
+ * @param {Array} arr
+ * @param {Function} fn
+ * @return {Array}
+ */
+var sortBy = function(arr, fn) {
+    arr.sort((a, b) => {
+        let asd = fn(a)
+        let bs = fn(b)
+        return asd - bs
+    });
+
+    return arr
+};
