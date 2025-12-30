@@ -1,0 +1,29 @@
+/**
+ * @param {Object|Array} obj
+ * @return {Object|Array}
+ */
+var compactObject = function(obj) {
+    if (obj === null || typeof obj !== 'object') return obj; 
+    
+
+    if (Array.isArray(obj)) {
+        for (let i= obj.length - 1; i >= 0; i--) {
+            obj[i] = compactObject(obj[i])
+            if (!Boolean(obj[i])) {
+                obj.splice(i, 1)
+            }
+        }
+    } else {
+        for (const key in obj) {
+            obj[key] = compactObject(obj[key])
+            if (!Boolean(obj[key])) {
+                delete obj[key]
+            } 
+                    
+                
+        }
+    }
+        
+
+    return obj
+};
