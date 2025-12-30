@@ -1,0 +1,59 @@
+class EventEmitter {
+    constructor() {
+        this.memoria = {};
+    }
+    
+
+    /**
+     * @param {string} eventName
+     * @param {Function} callback
+     * @return {Object}
+     */
+    
+    subscribe(eventName, callback) {
+        if (!this.memoria[eventName]) {
+            this.memoria[eventName] = []
+        }
+
+        this.memoria[eventName].push(callback);
+
+        return {
+            unsubscribe: () => {
+                const index = this.memoria[eventName].indexOf(callback);
+                this.memoria[eventName].splice(index, 1)
+
+            }
+        };
+    }
+    
+    /**
+     * @param {string} eventName
+     * @param {Array} args
+     * @return {Array}
+     */
+    emit(eventName, args = []) {
+        if (!this.memoria[eventName]) {
+            return []
+        }
+
+        const results = []
+
+        for (const fn of this.memoria[eventName]) {
+            const resultado = fn(...args)
+            results.push(resultado);
+        }
+        return results
+    }
+}
+
+/**
+ * const emitter = new EventEmitter();
+ *
+ * // Subscribe to the onClick event with onClickCallback
+ * function onClickCallback() { return 99 }
+ * const sub = emitter.subscribe('onClick', onClickCallback);
+ *
+ * emitter.emit('onClick'); // [99]
+ * sub.unsubscribe(); // undefined
+ * emitter.emit('onClick'); // []
+ */
