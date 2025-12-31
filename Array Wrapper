@@ -1,0 +1,38 @@
+/**
+ * @param {number[]} nums
+ * @return {void}
+ */
+var ArrayWrapper = function(nums) {
+    this.nums = nums
+};
+
+/**
+ * @return {number}
+ */
+ArrayWrapper.prototype.valueOf = function() {
+    const numsF = this.nums.flat(Infinity);
+    let sum = 0
+    if (numsF.length > 0) {
+        for (let i=0; numsF.length > i; i++) {
+            sum += numsF[i]
+        } 
+        return sum
+    }
+    return 0
+}
+
+/**
+ * @return {string}
+ */
+ArrayWrapper.prototype.toString = function() {
+    const numsF = this.nums.flat(Infinity);
+    return JSON.stringify(numsF)
+}
+
+/**
+ * const obj1 = new ArrayWrapper([1,2]);
+ * const obj2 = new ArrayWrapper([3,4]);
+ * obj1 + obj2; // 10
+ * String(obj1); // "[1,2]"
+ * String(obj2); // "[3,4]"
+ */
