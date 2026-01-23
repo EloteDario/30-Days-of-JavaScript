@@ -1,0 +1,10 @@
+function maskEmail(email) {
+  const end_position = email.indexOf("@") - 1
+  const firts_position = 0
+  const hide = ("*".repeat(end_position - firts_position - 1))
+  email = email[firts_position] + hide +  email[end_position] + email.slice(end_position + 1, email.length)
+  return email
+}
+
+const email = "apple.pie@example.com"
+console.log(maskEmail(email))
