@@ -1,0 +1,14 @@
+function largestOfAll (arr) {
+  const largestArray = []
+
+  for (let i=0; i < arr.length; i++) {
+    let sum = -100 
+    for (let o = 0; o < arr[i].length; o++) {
+      if (arr[i][o] > sum) {
+        sum = arr[i][o]
+        }  
+    }
+    largestArray.push(sum)
+  }
+  return largestArray
+}
