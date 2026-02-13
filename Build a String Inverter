@@ -1,0 +1,9 @@
+function reverseString (str) {
+  let inverseStr = ""
+  
+  for (let i = str.length - 1; i > -1; i--) {
+    inverseStr += str[i]
+    
+  }
+  return inverseStr
+}
