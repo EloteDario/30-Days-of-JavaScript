@@ -1,0 +1,9 @@
+function findElement(elements, condition) {
+  for (let i = 0; i < elements.length; i++) {
+    
+    if (condition(elements[i])) {
+      return elements[i]
+    } 
+
+  }
+}
