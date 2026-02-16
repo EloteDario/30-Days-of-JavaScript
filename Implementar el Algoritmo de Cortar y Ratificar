@@ -1,0 +1,18 @@
+function frankenSplice (arr1, arr2, index) {
+  const retList = []
+  for (let i = 0; i < index; i++) {
+    retList.push(arr2[i])
+    console.log(retList)
+  }
+
+  for (let o = 0; o < arr1.length; o++) {
+    retList.push(arr1[o])
+    console.log(retList)
+  }
+  
+  for (let v = 0; v < index; v++) {
+    retList.push(arr2[v+index])
+    console.log(retList)
+  }
+  return retList
+}
