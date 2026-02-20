@@ -1,0 +1,7 @@
+function dropElements(arr, func) {
+  // Mientras haya elementos y el primero NO cumpla la función...
+  while (arr.length > 0 && !func(arr[0])) {
+    arr.shift(); // Quitamos el primero y el siguiente pasa a ser el nuevo arr[0]
+  }
+  return arr;
+}
